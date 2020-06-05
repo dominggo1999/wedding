@@ -10,6 +10,7 @@ body {
 }
 
 h1::selection, h2::selection, h3::selection, h4::selection, h5::selection, h6::selection, p::selection, span::selection {
+  color: #fff;
   background-color: #cdb192;
 }
 
@@ -221,6 +222,142 @@ h1::selection, h2::selection, h3::selection, h4::selection, h5::selection, h6::s
   }
   100% {
     transform: scale(1);
+  }
+}
+section {
+  padding: 100px 0;
+}
+section .section-title, section .section-subtitle, section .section-description {
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+}
+section .section-title::selection, section .section-subtitle::selection, section .section-description::selection {
+  color: #fff;
+}
+section .section-title {
+  color: #CAB380;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+section .section-subtitle {
+  font-family: "Playfair Display", serif;
+  margin-bottom: 30px;
+}
+section .section-description {
+  margin: 0 auto;
+  color: #ACACAC;
+  line-height: 1.8;
+}
+@media screen and (min-width: 992px) {
+  section .section-description {
+    max-width: 60%;
+  }
+}
+
+.about-us {
+  position: relative;
+}
+.about-us .bride-groom-cards {
+  position: relative;
+  margin-top: 80px;
+}
+.about-us .bride-groom-cards .bride, .about-us .bride-groom-cards .groom {
+  margin-bottom: 50px;
+}
+.about-us .bride-groom-cards .bride:hover .social-media, .about-us .bride-groom-cards .groom:hover .social-media {
+  opacity: 1;
+}
+.about-us .bride-groom-cards .bride:hover .card-img, .about-us .bride-groom-cards .groom:hover .card-img {
+  transform: scale(1.05);
+}
+.about-us .bride-groom-cards .bride .title, .about-us .bride-groom-cards .bride .name, .about-us .bride-groom-cards .bride .text, .about-us .bride-groom-cards .groom .title, .about-us .bride-groom-cards .groom .name, .about-us .bride-groom-cards .groom .text {
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+}
+.about-us .bride-groom-cards .bride .title::selection, .about-us .bride-groom-cards .bride .name::selection, .about-us .bride-groom-cards .bride .text::selection, .about-us .bride-groom-cards .groom .title::selection, .about-us .bride-groom-cards .groom .name::selection, .about-us .bride-groom-cards .groom .text::selection {
+  color: #fff;
+  background: #cdb192;
+}
+.about-us .bride-groom-cards .bride .title, .about-us .bride-groom-cards .groom .title {
+  padding-top: 30px;
+  margin-bottom: 20px;
+  color: #CAB380;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.about-us .bride-groom-cards .bride .name, .about-us .bride-groom-cards .groom .name {
+  font-family: "Playfair Display", serif;
+  margin-bottom: 30px;
+  font-size: 30px;
+}
+.about-us .bride-groom-cards .bride .text, .about-us .bride-groom-cards .groom .text {
+  margin: 0 auto;
+  color: #ACACAC;
+  line-height: 1.8;
+}
+.about-us .bride-groom-cards .img-container {
+  width: 100%;
+  height: 500px;
+  position: relative;
+  overflow: hidden;
+}
+.about-us .bride-groom-cards .card-img {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: transform 800ms ease-in-out;
+}
+.about-us .bride-groom-cards .bride .card-img {
+  background-image: url("../assets/1.png");
+}
+.about-us .bride-groom-cards .groom .card-img {
+  background-image: url("../assets/2.png");
+}
+.about-us .bride-groom-cards .social-media {
+  opacity: 0;
+  z-index: 5;
+  position: absolute;
+  left: 50%;
+  top: 80%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: row;
+  transition: opacity 600ms ease-in-out;
+}
+.about-us .bride-groom-cards .social-media i {
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  font-size: 20px;
+  background: #cdb192;
+  color: #000;
+  display: flex;
+  margin: 10px;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+}
+.about-us .bride-groom-cards .social-media i:hover {
+  color: #fff;
+  background: #000;
+}
+
+@media screen and (min-width: 992px) {
+  .about-us .bride-groom-cards {
+    margin: 60px;
+  }
+  .about-us .bride-groom-cards .bride, .about-us .bride-groom-cards .groom {
+    padding: 0 30px;
+    margin-bottom: 0;
+  }
+  .about-us .bride-groom-cards .bride .text, .about-us .bride-groom-cards .groom .text {
+    padding: 0 30px;
+  }
+  .about-us .wedding-date {
+    top: 50%;
+    transform: rotate(-90deg) translateY(-50%);
   }
 }
 
