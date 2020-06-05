@@ -17,6 +17,11 @@
 	<link rel="stylesheet" href="./styles/main.css">
 </head>
 <body>
+	<!-- Preloader -->
+	<div class="preloader d-flex justify-content-center align-items-center">
+		<i class="fas fa-heart"></i>
+	</div>
+
 	<nav class="navbar navbar-expand-lg">
         <div class="container align-items-center">
               <a class="navbar-brand" href="#">Wedding.</a>
@@ -25,24 +30,24 @@
               </a>
               <div class="collapse navbar-collapse" id="navbarMenu">
                 <div class="navbar-nav mx-auto">
-                  <a class="nav-item nav-link" href="#">Home</a>
-                  <a class="nav-item nav-link" href="#">About us</a>
-                  <a class="nav-item nav-link" href="#">Moments</a>
-                  <a class="nav-item nav-link" href="#">Details</a>
-                  <a class="nav-item nav-link" href="#">Contact</a>
+                  <a class="nav-item nav-link" data-easing="easeInQuart" href="#home">Home</a>
+                  <a class="nav-item nav-link" data-easing="easeInQuart" href="#aboutUs">About us</a>
+                  <a class="nav-item nav-link" data-easing="easeInQuart" href="#">Moments</a>
+                  <a class="nav-item nav-link" data-easing="easeInQuart" href="#">Details</a>
+                  <a class="nav-item nav-link" data-easing="easeInQuart" href="#">Contact</a>
                 </div>
                 <button type="button" class="btn btn-primary">RSVP</button>
              </div>
          </div>
     </nav>
     
-    <main class="main-header d-flex justify-content-center align-items-center">
+    <main class="main-header d-flex justify-content-center align-items-center" id="home">
     	<div class="hero-image"></div>
     	<div class="main-content">
     		<h1>Brandon & Kezia</h1>
     		<h3>ARE GETTING MARRIED</h3>
     	</div>
-    	<a class="scroll-down d-flex flex-column align-items-center">
+    	<a class="scroll-down d-flex flex-column align-items-center"  data-easing="easeInQuart" href="#aboutUs" >
     		<span>scroll</span>
     		 <i class="icon fas fa-arrow-down"></i>
     	</a>
@@ -51,7 +56,7 @@
     	</div>
     </main>
 
-    <section class="about-us">
+    <section class="about-us" id="aboutUs">
     	<div class="container">
     		<p class="section-title">About us</p>
     		<h1 class="section-subtitle">Our Love Story</h1>
@@ -95,6 +100,10 @@
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+	<!-- Smooth Scroll -->
+	<script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+
 	<!-- Costum JS -->
 	<script src = "app.js"></script>
 </body>
