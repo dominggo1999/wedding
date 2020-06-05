@@ -1,5 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+$xs: 576px;
+$sm: 768px;
+$md: 992px;
+$lg: 1200px;
+
+@mixin checkScreen ($bp) {
+     @media screen and(min-width: $bp) {
+      @content;
+    }
+}
+
+$roboto : 'Roboto', sans-serif;
+$playfair : 'Playfair Display', serif;
+
+// COLOR THEME
+$cream : #CAB380;
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
+body{
+    font-family: $roboto!important;
+}
+
+// ---------------NAVBAR------------------
+
+.navbar{
+    position: absolute;
+    width: 100%;
+    background-color:#fff;
+
+    .navbar-brand{
+        font-family: $playfair;
+        font-size: 22px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        color: #000;
+    }
+
+    .navbar-toggler{
+        cursor: pointer;
+        color: #7C7C7C;
+    }
+
+    #navbarMenu{
+        a{
+            margin: 0 20px;
+            text-transform: uppercase;
+            font-family: $roboto!important;
+            letter-spacing: 3.5px;
+            font-size: 13.5px;
+            color: #000;
+            padding: 25px 0;
+            padding-left: 0;
+            margin-left: 0;
+        }
+
+        button{
+            text-align: center;
+            border-radius: 0;
+            border: none;
+            box-shadow: none;
+            outline: none;
+            padding: 10px 40px;
+            background:#000;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 50px;
+
+            &:hover{
+                background: $cream;
+                color: #000;
+            }
+
+            &:focus{
+                outline: none;
+                border: none;
+                box-shadow: none;
+            }
+        }
+    }
+}
+
+@include checkScreen($lg) {
+    .navbar{
+        background: none;
+        padding: 20px 0;
+        transition:300ms;
+
+        #navbarMenu {
+            padding: 0;
+            a{
+                color: #fff;
+                margin: 0 20px;
+                padding: 8px;
+                transition:300ms;
+            }
+
+            button{
+                margin:0;
+            }
+        }
+    }
+
+    .navbar.sticky{
+        position: fixed;
+        background-color: #fff;
+        padding: 10px 0;
+        border-bottom: 1px solid gray;
+
+        #navbarMenu{
+            a{
+                color: #000;
+            }
+        }
+    }
+}
+
+.main-header{
+    width: 100%;
+    min-height: 600px;
+    height: 100vh;
+    background-image:url('../assets/slider.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
