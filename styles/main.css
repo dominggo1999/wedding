@@ -9,7 +9,48 @@ body {
   font-family: "Roboto", sans-serif !important;
 }
 
+h1::selection, h2::selection, h3::selection, h4::selection, h5::selection, h6::selection, p::selection, span::selection {
+  background-color: #cdb192;
+}
+
+.wedding-date {
+  display: none;
+}
+
+.wedding-date.c-white {
+  color: #fff;
+}
+.wedding-date.c-white::before {
+  background-color: #fff;
+}
+
+.wedding-date.c-gray {
+  color: #ACACAC;
+}
+.wedding-date.c-gray::before {
+  background-color: #ACACAC;
+}
+
+@media screen and (min-width: 992px) {
+  .wedding-date {
+    display: block;
+    position: absolute;
+    transform: rotate(-90deg);
+    right: -50px;
+    font-size: 14px;
+    letter-spacing: 5px;
+  }
+  .wedding-date::before {
+    display: inline-block;
+    content: "";
+    width: 40px;
+    height: 1px;
+    margin-bottom: 4px;
+    margin-right: 10px;
+  }
+}
 .navbar {
+  z-index: 10;
   position: absolute;
   width: 100%;
   background-color: #fff;
@@ -59,11 +100,15 @@ body {
   box-shadow: none;
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 992px) {
   .navbar {
     background: none;
     padding: 20px 0;
     transition: 300ms;
+  }
+  .navbar .navbar-brand {
+    color: #fff;
+    padding: 0;
   }
   .navbar #navbarMenu {
     padding: 0;
@@ -71,7 +116,7 @@ body {
   .navbar #navbarMenu a {
     color: #fff;
     margin: 0 20px;
-    padding: 8px;
+    padding: 0 8px;
     transition: 300ms;
   }
   .navbar #navbarMenu button {
@@ -84,6 +129,9 @@ body {
     padding: 10px 0;
     border-bottom: 1px solid gray;
   }
+  .navbar.sticky .navbar-brand {
+    color: #000;
+  }
   .navbar.sticky #navbarMenu a {
     color: #000;
   }
@@ -92,10 +140,88 @@ body {
   width: 100%;
   min-height: 600px;
   height: 100vh;
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+}
+.main-header .hero-image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
   background-image: url("../assets/slider.png");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+}
+.main-header .main-content {
+  position: relative;
+  text-align: center;
+  font-weight: 400;
+}
+.main-header .main-content h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 45px;
+}
+.main-header .main-content h3 {
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  margin-top: 20px;
+  letter-spacing: 5px;
+}
+.main-header .scroll-down {
+  cursor: pointer;
+  position: absolute;
+  z-index: 9;
+  bottom: 25px;
+  text-transform: uppercase;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  animation: bounce 4000ms ease-in-out infinite;
+  padding-bottom: 10px;
+}
+.main-header .scroll-down span {
+  display: inline-block;
+  font-size: 13px;
+  letter-spacing: 3px;
+  margin-bottom: 15px;
+}
+.main-header .scroll-down .icon {
+  font-size: 12px;
+  transform: scaleY(2.1) scaleX(1.5);
+}
+
+@media screen and (min-width: 768px) {
+  .main-header .hero-image {
+    animation: slomoZoom 35s ease-in-out infinite;
+  }
+  .main-header .main-content h1 {
+    font-size: 90px;
+  }
+  .main-header .main-content h3 {
+    font-size: 30px;
+  }
+}
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes slomoZoom {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

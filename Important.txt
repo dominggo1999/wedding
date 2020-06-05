@@ -1,0 +1,4 @@
+pelajaran hari ini 
+
+-kalau mau costumize font navbar, target id nya saja
+-kasih padding di navbar menu akan menyebabkan bug pada saat animasi untuk dropdown

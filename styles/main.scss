@@ -16,6 +16,8 @@ $playfair : 'Playfair Display', serif;
 
 // COLOR THEME
 $cream : #CAB380;
+$lightCream : #cdb192;
+$lgrey  : #ACACAC;
 
 *{
     margin: 0;
@@ -27,9 +29,54 @@ body{
     font-family: $roboto!important;
 }
 
-// ---------------NAVBAR------------------
+h1,h2,h3,h4,h5,h6,p,span {
+    &::selection {
+        background-color:$lightCream;
+    }
+}
 
+//-------------------WEDDING DATE-----------------------
+.wedding-date{
+    display: none;
+}
+
+.wedding-date.c-white{
+    color: #fff;
+    &::before{
+        background-color:#fff;
+    }
+}
+
+.wedding-date.c-gray{
+    color: $lgrey;
+    &::before{
+        background-color:$lgrey;
+    }
+}
+
+@include checkScreen($md){
+    .wedding-date{
+        display: block;
+        position:absolute;
+        transform: rotate(-90deg);
+        right: -50px;
+        font-size: 14px;
+        letter-spacing: 5px;
+
+        &::before{
+            display: inline-block;
+            content:'';
+            width:40px;
+            height: 1px;
+            margin-bottom: 4px;
+            margin-right: 10px;
+        }
+    }
+}
+
+// ---------------NAVBAR------------------
 .navbar{
+    z-index: 10;
     position: absolute;
     width: 100%;
     background-color:#fff;
@@ -87,18 +134,24 @@ body{
     }
 }
 
-@include checkScreen($lg) {
+@include checkScreen($md) {
     .navbar{
         background: none;
         padding: 20px 0;
         transition:300ms;
+
+        .navbar-brand{
+            color: #fff;
+            padding: 0;
+        }
+
 
         #navbarMenu {
             padding: 0;
             a{
                 color: #fff;
                 margin: 0 20px;
-                padding: 8px;
+                padding: 0 8px;
                 transition:300ms;
             }
 
@@ -114,6 +167,10 @@ body{
         padding: 10px 0;
         border-bottom: 1px solid gray;
 
+        .navbar-brand{
+            color: #000;
+        }
+
         #navbarMenu{
             a{
                 color: #000;
@@ -122,14 +179,103 @@ body{
     }
 }
 
+// ---------------HEADER------------------
 .main-header{
     width: 100%;
     min-height: 600px;
     height: 100vh;
-    background-image:url('../assets/slider.png');
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+    color: #fff;
+
+    .hero-image{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-image:url('../assets/slider.png');
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .main-content{
+        position: relative;
+        text-align: center;
+        font-weight: 400;
+
+        h1{
+            font-family: $playfair;
+            font-size: 45px;
+        }
+
+        h3{
+            font-family: $roboto;
+            font-size: 15px;
+            margin-top: 20px;
+            letter-spacing: 5px;
+        }
+    }
+
+    .scroll-down{
+        cursor:pointer;
+        position: absolute;
+        z-index: 9;
+        bottom: 25px;
+        text-transform: uppercase;
+        font-family: $roboto;
+        font-weight: 500;
+        animation: bounce 4000ms ease-in-out infinite ;
+        padding-bottom: 10px;
+        span{
+            display: inline-block;
+            font-size: 13px;   
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+        }
+
+        .icon{
+            font-size: 12px;
+            transform: scaleY(2.1) scaleX(1.5);
+        }
+    }
 }
 
+@include checkScreen($sm){
+    .main-header{
+        .hero-image{
+            animation: slomoZoom 35s ease-in-out infinite ;
+        }
+        .main-content{
+            h1{
+                font-size: 90px;
+            }
+            h3{
+                font-size: 30px;
+            }
+        }
+    }
+}
 
+@keyframes bounce {
+    0%{
+        transform : translateY(0);
+    }
+    50%{
+        transform : translateY(10px);
+    }
+    100%{
+         transform : translateY(0);
+    }
+}
+
+@keyframes slomoZoom {
+    0%{
+        transform : scale(1);
+    }
+    50%{
+        transform : scale(1.15);
+    }
+    100%{
+         transform : scale(1);
+    }
+}
