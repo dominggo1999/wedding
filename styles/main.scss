@@ -18,6 +18,7 @@ $playfair : 'Playfair Display', serif;
 $cream : #CAB380;
 $lightCream : #cdb192;
 $lgrey  : #ACACAC;
+$lightbg : #FBF5EE;
 
 *{
     margin: 0;
@@ -29,10 +30,10 @@ body{
     font-family: $roboto!important;
 }
 
-h1,h2,h3,h4,h5,h6,p,span,{
+h1,h2,h3,h4,h5,h6,p,span,div{
     &::selection {
-        color: #fff;
-        background-color:$lightCream;
+        color: #fff!important;
+        background-color:$lightCream!important;
     }
 }
 
@@ -177,6 +178,12 @@ h1,h2,h3,h4,h5,h6,p,span,{
     }
 }
 
+
+.navbar.sticky{
+    position: fixed;
+    border-bottom: 1px solid gray;
+}
+
 @include checkScreen($md) {
     .navbar{
         background: none;
@@ -208,8 +215,6 @@ h1,h2,h3,h4,h5,h6,p,span,{
         position: fixed;
         background-color: #fff;
         padding: 10px 0;
-        border-bottom: 1px solid gray;
-
         .navbar-brand{
             color: #000;
         }
@@ -365,6 +370,7 @@ section{
 // --------------About Us------------------
 .about-us{
     position: relative;
+    padding-bottom: 0;
     .bride-groom-cards{
         position: relative;
         margin-top: 80px;
@@ -480,6 +486,85 @@ section{
         .wedding-date{
             top: 50%;
             transform:rotate(-90deg) translateY(-50%);
+        }
+    }
+}
+
+// -------------Date Section------------------
+section.date-wrapper{
+    padding: 100px 0;
+    background-color:$lightbg;
+    position: relative;
+    p{
+        font-family: $roboto;
+        font-size: 20px;
+        text-transform: uppercase;
+        color: $cream;
+    }
+
+    .date-content{
+        align-items: center;    
+        .date,.location{
+            padding:0;
+        }
+
+        .date{
+            font-family: $playfair;
+            font-size: 50px;
+            font-weight: 400;
+        }
+
+        .location{
+            display: flex;
+            align-items: flex-end;
+            .location-icon{
+                font-size: 100px;
+                color:$cream;
+                margin-right: 20px;
+            }
+
+            p.location-content{
+                font-size: 20px;
+                font-family:$roboto;
+                color: #888786 ;
+                text-transform: capitalize;
+            }
+        }
+    }
+
+    .count-down{
+        margin-top: 30px;
+        span:nth-child(1){
+            font-family: $playfair;
+            font-size: 50px;
+            color: $cream;
+        }
+        span:nth-child(2){
+            font-family: $roboto;
+            font-size: 15px;
+            color: $lgrey;
+            letter-spacing: 3px;
+        }
+
+        div{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-transform: uppercase;
+            padding-top: 20px;
+        }
+    }
+}
+
+@include checkScreen($md){
+    section.date-wrapper{
+        .wedding-date{
+            top: 50%;
+            transform:rotate(-90deg) translateY(-50%);
+        }   
+
+        .date-content{
+            padding: 20px 10px;
         }
     }
 }

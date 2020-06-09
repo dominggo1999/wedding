@@ -9,9 +9,9 @@ body {
   font-family: "Roboto", sans-serif !important;
 }
 
-h1::selection, h2::selection, h3::selection, h4::selection, h5::selection, h6::selection, p::selection, span::selection {
-  color: #fff;
-  background-color: #cdb192;
+h1::selection, h2::selection, h3::selection, h4::selection, h5::selection, h6::selection, p::selection, span::selection, div::selection {
+  color: #fff !important;
+  background-color: #cdb192 !important;
 }
 
 .wedding-date {
@@ -139,6 +139,11 @@ h1::selection, h2::selection, h3::selection, h4::selection, h5::selection, h6::s
   box-shadow: none;
 }
 
+.navbar.sticky {
+  position: fixed;
+  border-bottom: 1px solid gray;
+}
+
 @media screen and (min-width: 992px) {
   .navbar {
     background: none;
@@ -166,7 +171,6 @@ h1::selection, h2::selection, h3::selection, h4::selection, h5::selection, h6::s
     position: fixed;
     background-color: #fff;
     padding: 10px 0;
-    border-bottom: 1px solid gray;
   }
   .navbar.sticky .navbar-brand {
     color: #000;
@@ -296,6 +300,7 @@ section .section-description {
 
 .about-us {
   position: relative;
+  padding-bottom: 0;
 }
 .about-us .bride-groom-cards {
   position: relative;
@@ -398,6 +403,74 @@ section .section-description {
   .about-us .wedding-date {
     top: 50%;
     transform: rotate(-90deg) translateY(-50%);
+  }
+}
+section.date-wrapper {
+  padding: 100px 0;
+  background-color: #FBF5EE;
+  position: relative;
+}
+section.date-wrapper p {
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
+  text-transform: uppercase;
+  color: #CAB380;
+}
+section.date-wrapper .date-content {
+  align-items: center;
+}
+section.date-wrapper .date-content .date, section.date-wrapper .date-content .location {
+  padding: 0;
+}
+section.date-wrapper .date-content .date {
+  font-family: "Playfair Display", serif;
+  font-size: 50px;
+  font-weight: 400;
+}
+section.date-wrapper .date-content .location {
+  display: flex;
+  align-items: flex-end;
+}
+section.date-wrapper .date-content .location .location-icon {
+  font-size: 100px;
+  color: #CAB380;
+  margin-right: 20px;
+}
+section.date-wrapper .date-content .location p.location-content {
+  font-size: 20px;
+  font-family: "Roboto", sans-serif;
+  color: #888786;
+  text-transform: capitalize;
+}
+section.date-wrapper .count-down {
+  margin-top: 30px;
+}
+section.date-wrapper .count-down span:nth-child(1) {
+  font-family: "Playfair Display", serif;
+  font-size: 50px;
+  color: #CAB380;
+}
+section.date-wrapper .count-down span:nth-child(2) {
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  color: #ACACAC;
+  letter-spacing: 3px;
+}
+section.date-wrapper .count-down div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-transform: uppercase;
+  padding-top: 20px;
+}
+
+@media screen and (min-width: 992px) {
+  section.date-wrapper .wedding-date {
+    top: 50%;
+    transform: rotate(-90deg) translateY(-50%);
+  }
+  section.date-wrapper .date-content {
+    padding: 20px 10px;
   }
 }
 
